@@ -1,0 +1,75 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,6
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "timer_conf.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .global TIMER_DISTANCE_config
+  20              	 .section .data.TIMER_DISTANCE_config,"aw",%progbits
+  21              	 .align 2
+  24              	TIMER_DISTANCE_config:
+  25 0000 00       	 .byte 0
+  26 0001 00       	 .byte 0
+  27 0002 00       	 .byte 0
+  28 0003 00       	 .byte 0
+  29 0004 00       	 .byte 0
+  30 0005 000000   	 .space 3
+  31 0008 00       	 .byte 0
+  32 0009 000000   	 .space 3
+  33 000c 0F       	 .byte 15
+  34 000d 00       	 .byte 0
+  35 000e 0000     	 .space 2
+  36              	 .global TIMER_DISTANCE
+  37              	 .section .data.TIMER_DISTANCE,"aw",%progbits
+  38              	 .align 2
+  41              	TIMER_DISTANCE:
+  42 0000 00CA9A3B 	 .word 1000000000
+  43 0004 3435E358 	 .word 1491285300
+  44 0008 0A000000 	 .word 10
+  45 000c 05000000 	 .word 5
+  46 0010 00000000 	 .word GLOBAL_CCU8_0
+  47 0014 00010240 	 .word 1073873152
+  48 0018 00       	 .byte 0
+  49 0019 000000   	 .space 3
+  50 001c 00000000 	 .word TIMER_DISTANCE_config
+  51 0020 00       	 .byte 0
+  52 0021 01       	 .byte 1
+  53 0022 A8AB     	 .short -21592
+  54 0024 00       	 .byte 0
+  55 0025 00       	 .byte 0
+  56 0026 00       	 .byte 0
+  57 0027 00       	 .space 1
+  58              	 .text
+  59              	.Letext0:
+  60              	 .file 1 "d:\\dave-ide-4.4.2-64bit\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+  61              	 .file 2 "d:\\dave-ide-4.4.2-64bit\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+  62              	 .file 3 "F:/Fuckultate/ProectSI/Libraries/CMSIS/Infineon/XMC4700_series/Include/XMC4700.h"
+  63              	 .file 4 "F:/Fuckultate/ProectSI/Libraries/XMCLib/inc/xmc_ccu8.h"
+  64              	 .file 5 "F:/Fuckultate/ProectSI/Libraries/XMCLib/inc/xmc4_scu.h"
+  65              	 .file 6 "F:/Fuckultate/ProectSI/Dave/Generated/GLOBAL_CCU8/global_ccu8.h"
+  66              	 .file 7 "../Dave/Generated/TIMER/timer.h"
+  67              	 .file 8 "F:/Fuckultate/ProectSI/Libraries/CMSIS/Include/core_cm4.h"
+  68              	 .file 9 "F:/Fuckultate/ProectSI/Libraries/CMSIS/Infineon/XMC4700_series/Include/system_XMC4700.h"
+  69              	 .file 10 "F:/Fuckultate/ProectSI/Dave/Generated/GLOBAL_CCU8/global_ccu8_extern.h"
+  70              	 .file 11 "../Dave/Generated/TIMER/timer_conf.c"
+DEFINED SYMBOLS
+                            *ABS*:00000000 timer_conf.c
+    {standard input}:24     .data.TIMER_DISTANCE_config:00000000 TIMER_DISTANCE_config
+    {standard input}:21     .data.TIMER_DISTANCE_config:00000000 $d
+    {standard input}:41     .data.TIMER_DISTANCE:00000000 TIMER_DISTANCE
+    {standard input}:38     .data.TIMER_DISTANCE:00000000 $d
+
+UNDEFINED SYMBOLS
+GLOBAL_CCU8_0

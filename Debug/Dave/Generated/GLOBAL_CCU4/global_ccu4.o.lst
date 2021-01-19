@@ -1,0 +1,1174 @@
+   1              	 .syntax unified
+   2              	 .cpu cortex-m4
+   3              	 .eabi_attribute 27,3
+   4              	 .fpu fpv4-sp-d16
+   5              	 .eabi_attribute 20,1
+   6              	 .eabi_attribute 21,1
+   7              	 .eabi_attribute 23,3
+   8              	 .eabi_attribute 24,1
+   9              	 .eabi_attribute 25,1
+  10              	 .eabi_attribute 26,1
+  11              	 .eabi_attribute 30,6
+  12              	 .eabi_attribute 34,1
+  13              	 .eabi_attribute 18,4
+  14              	 .thumb
+  15              	 .file "global_ccu4.c"
+  16              	 .text
+  17              	.Ltext0:
+  18              	 .cfi_sections .debug_frame
+  19              	 .section .text.XMC_CCU4_StartPrescaler,"ax",%progbits
+  20              	 .align 2
+  21              	 .thumb
+  22              	 .thumb_func
+  24              	XMC_CCU4_StartPrescaler:
+  25              	.LFB137:
+  26              	 .file 1 "F:/Fuckultate/ProectSI/Libraries/XMCLib/inc/xmc_ccu4.h"
+   1:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+   2:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @file xmc_ccu4.h
+   3:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @date 2017-09-15
+   4:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+   5:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @cond
+   6:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  **************************************************************************************************
+   7:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * XMClib v2.1.18 - XMC Peripheral Driver Library 
+   8:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+   9:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Copyright (c) 2015-2018, Infineon Technologies AG
+  10:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * All rights reserved.                        
+  11:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *                                             
+  12:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  13:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * following conditions are met:   
+  14:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *                                                                              
+  15:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Redistributions of source code must retain the above copyright notice, this list of conditions a
+  16:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * disclaimer.                        
+  17:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 
+  18:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Redistributions in binary form must reproduce the above copyright notice, this list of condition
+  19:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * disclaimer in the documentation and/or other materials provided with the distribution.          
+  20:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 
+  21:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Neither the name of the copyright holders nor the names of its contributors may be used to endor
+  22:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * products derived from this software without specific prior written permission.                  
+  23:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *                                                                              
+  24:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  25:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  26:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  27:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  28:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  29:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  30:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                            
+  31:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *                                                                              
+  32:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  33:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Infineon Technologies AG dave@infineon.com).                                                    
+  34:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  **************************************************************************************************
+  35:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  36:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Change History
+  37:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * --------------
+  38:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  39:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2015-02-20:
+  40:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - Initial <br>
+  41:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - Documentation updates <br>
+  42:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  43:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2015-06-20:
+  44:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - Removed version macros and declaration of GetDriverVersion API <br>
+  45:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  46:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2015-07-22:
+  47:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - XMC_CCU4_SLICE_ConfigureStatusBitOverrideEvent() is updated to support XMC14 device. <br>
+  48:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  49:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2015-08-17:
+  50:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - XMC_CCU4_SLICE_PRESCALER_t enum is added to set the prescaler divider. <br>
+  51:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - XMC_CCU4_SLICE_SHADOW_TRANSFER_MODE_t enum item names are updated according to the guideli
+  52:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - XMC_CCU4_EnableShadowTransfer() API is made as inline, to improve the speed. <br>
+  53:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  54:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2015-09-29:
+  55:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - In XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY_t, two more enum items are added to support exte
+  56:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *       settings.
+  57:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  58:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2015-10-07:
+  59:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - XMC_CCU4_SLICE_GetEvent() is made as inline.
+  60:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - XMC_CCU4_SLICE_MULTI_IRQ_ID_t is added to support the XMC_CCU4_SLICE_EnableMultipleEvents(
+  61:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *       XMC_CCU4_SLICE_DisableMultipleEvents() APIs.
+  62:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - DOC updates for the newly added APIs.
+  63:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  64:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2016-03-09:
+  65:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - Optimization of write only registers 
+  66:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  67:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2016-05-20:
+  68:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - Added XMC_CCU4_SLICE_StopClearTimer()
+  69:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - Changed implementation of XMC_CCU4_SLICE_StopTimer() and XMC_CCU4_SLICE_ClearTimer() to av
+  70:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  71:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2017-04-27:
+  72:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - XMC_CCU4_SLICE_SetPrescaler() changed div_val parameter to type XMC_CCU4_SLICE_PRESCALER_t
+  73:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 
+  74:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2017-09-15:
+  75:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *     - Fix XMC_CCU4_SLICE_SetShadowTransferMode()
+  76:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+  77:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @endcond
+  78:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+  79:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+  80:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #ifndef XMC_CCU4_H
+  81:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #define XMC_CCU4_H
+  82:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  
+  83:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**************************************************************************************************
+  84:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * HEADER FILES
+  85:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  **************************************************************************************************
+  86:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #include "xmc_common.h"
+  87:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU40)
+  88:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+  89:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if UC_FAMILY == XMC1
+  90:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  #include "xmc1_ccu4_map.h"
+  91:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+  92:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+  93:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if UC_FAMILY == XMC4
+  94:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  #include "xmc4_ccu4_map.h"
+  95:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+  96:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+  97:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+  98:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @addtogroup XMClib XMC Peripheral Library
+  99:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @{
+ 100:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 101:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  
+ 102:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 103:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @addtogroup CCU4
+ 104:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @brief Capture Compare Unit 4 (CCU4) low level driver for XMC family of microcontrollers<br>
+ 105:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 106:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * The CCU4 peripheral is a major component for systems that need general purpose timers for signal
+ 107:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * monitoring/conditioning and Pulse Width Modulation (PWM) signal generation. Power electronic con
+ 108:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * switched mode power supplies or interruptible power supplies, can easily be implemented with the
+ 109:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * CCU4 peripheral.\n
+ 110:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Each CCU4 module is comprised of four identical 16 bit Capture/Compare Timer slices, CC4y (where
+ 111:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * timer slice can work in compare mode or in capture mode.
+ 112:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 113:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * APIs provided in this file cover the following functional blocks of CCU4:\n
+ 114:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -- Timer configuration, Capture configuration, Function/Event configuration, Interrupt configura
+ 115:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par Note:
+ 116:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 1. SLICE (APIs prefixed with e.g. XMC_CCU4_SLICE_)
+ 117:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 2. Module (APIs are not having any prefix e.g. XMC_CCU4_)
+ 118:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 119:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par Timer(Compare mode) configuration:
+ 120:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * This section of the LLD provides the configuration structure XMC_CCU4_SLICE_COMPARE_CONFIG_t and
+ 121:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * function XMC_CCU4_SLICE_CompareInit().
+ 122:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 123:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * It can be used to:
+ 124:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Start and Stop the timer. (XMC_CCU4_SLICE_StartTimer(), XMC_CCU4_SLICE_StopTimer())
+ 125:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Update the period, compare, Dither, Prescaler  and Passive values. (XMC_CCU4_SLICE_SetTimerPe
+ 126:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    XMC_CCU4_SLICE_SetTimerCompareMatch(), XMC_CCU4_SLICE_SetPrescaler(), XMC_CCU4_SLICE_SetDithe
+ 127:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    XMC_CCU4_SLICE_SetPassiveLevel())
+ 128:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Enable the slices to support multichannel mode. (XMC_CCU4_SLICE_EnableMultiChannelMode())
+ 129:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 
+ 130:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par Capture configuration:
+ 131:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * This section of the LLD provides the configuration structure XMC_CCU4_SLICE_CAPTURE_CONFIG_t and
+ 132:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * function XMC_CCU4_SLICE_CaptureInit().
+ 133:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 134:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * It can be used to:
+ 135:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Configure the capture functionality. (XMC_CCU4_SLICE_Capture0Config(), XMC_CCU4_SLICE_Capture
+ 136:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Read the captured values along with the status, which indicate the value is latest or not.
+ 137:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    (XMC_CCU4_SLICE_GetCaptureRegisterValue())
+ 138:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 
+ 139:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par Function/Event configuration:
+ 140:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * This section of the LLD provides the configuration structure XMC_CCU4_SLICE_EVENT_CONFIG_t.\n
+ 141:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * 
+ 142:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * It can be used to:
+ 143:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Enable and Disable the events. (XMC_CCU4_SLICE_EnableEvent(), XMC_CCU4_SLICE_DisableEvent())
+ 144:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Configure to start and stop the timer on external events.(XMC_CCU4_SLICE_StartConfig(), XMC_C
+ 145:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Modulation, external load and Gating of the timer output.(XMC_CCU4_SLICE_ModulationConfig(), 
+ 146:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    XMC_CCU4_SLICE_LoadConfig(), XMC_CCU4_SLICE_GateConfig())
+ 147:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Control the count direction of the timer based on the external event. (XMC_CCU4_SLICE_Directi
+ 148:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# Count the external events.(XMC_CCU4_SLICE_CountConfig())
+ 149:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * -# External Trap. Which can be used as protective feature.(XMC_CCU4_SLICE_EnableTrap(), XMC_CCU4
+ 150:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    XMC_CCU4_SLICE_TrapConfig())
+ 151:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 152:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par Interrupt configuration:
+ 153:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * This section of the LLD provides the function to configure the interrupt node to each event (XMC
+ 154:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @{
+ 155:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 156:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  
+ 157:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**************************************************************************************************
+ 158:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * MACROS
+ 159:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  **************************************************************************************************
+ 160:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /* Macro to check if the interrupt enum passed is valid */
+ 161:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #define XMC_CCU4_SLICE_CHECK_INTERRUPT(interrupt) \
+ 162:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     ((interrupt == XMC_CCU4_SLICE_IRQ_ID_PERIOD_MATCH)           || \
+ 163:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****      (interrupt == XMC_CCU4_SLICE_IRQ_ID_ONE_MATCH)              || \
+ 164:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****      (interrupt == XMC_CCU4_SLICE_IRQ_ID_COMPARE_MATCH_UP)  || \
+ 165:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****      (interrupt == XMC_CCU4_SLICE_IRQ_ID_COMPARE_MATCH_DOWN)|| \
+ 166:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****      (interrupt == XMC_CCU4_SLICE_IRQ_ID_EVENT0)                 || \
+ 167:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****      (interrupt == XMC_CCU4_SLICE_IRQ_ID_EVENT1)                 || \
+ 168:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****      (interrupt == XMC_CCU4_SLICE_IRQ_ID_EVENT2)                 || \
+ 169:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****      (interrupt == XMC_CCU4_SLICE_IRQ_ID_TRAP))
+ 170:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 171:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**************************************************************************************************
+ 172:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * ENUMS
+ 173:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  **************************************************************************************************
+ 174:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 175:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 176:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Typedef for CCU4 Global data structure
+ 177:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 178:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef CCU4_GLOBAL_TypeDef XMC_CCU4_MODULE_t;
+ 179:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 180:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 181:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Typedef for CCU4 Slice data structure
+ 182:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 183:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef CCU4_CC4_TypeDef XMC_CCU4_SLICE_t;
+ 184:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 185:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 186:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Return Value of an API
+ 187:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 188:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_STATUS
+ 189:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 190:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_STATUS_OK      = 0U, /**< API fulfils request */
+ 191:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_STATUS_ERROR       , /**< API cannot fulfil the request */
+ 192:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_STATUS_RUNNING     , /**< The timer slice is currently running */
+ 193:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_STATUS_IDLE          /**< The timer slice is currently idle */
+ 194:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_STATUS_t;
+ 195:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 196:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 197:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  CCU4 module clock
+ 198:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 199:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_CLOCK
+ 200:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 201:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_CLOCK_SCU        = 0U, /**< Select the fCCU as the clock */
+ 202:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_CLOCK_EXTERNAL_A     , /**< External clock-A */
+ 203:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_CLOCK_EXTERNAL_B     , /**< External clock-B */
+ 204:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_CLOCK_EXTERNAL_C       /**< External clock-C */
+ 205:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_CLOCK_t;
+ 206:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 207:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 208:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * CCU4 set the shadow transfer type for multichannel mode
+ 209:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 210:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER
+ 211:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 212:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_SLICE0       = (uint32_t)0x4000000, /**< Shadow transfe
+ 213:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                      only for slice
+ 214:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_MCSS_SLICE0  = (uint32_t)0x4000400, /**< Shadow transfe
+ 215:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                      and hardware f
+ 216:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_SLICE1       = (uint32_t)0x8000000, /**< Shadow transfe
+ 217:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                      only for slice
+ 218:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_MCSS_SLICE1  = (uint32_t)0x8000800, /**< Shadow transfe
+ 219:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                      and hardware f
+ 220:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_SLICE2       = (uint32_t)0x10000000, /**< Shadow transf
+ 221:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                       only for slic
+ 222:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_MCSS_SLICE2  = (uint32_t)0x10001000, /**< Shadow transf
+ 223:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                       and hardware 
+ 224:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_SLICE3       = (uint32_t)0x20000000, /**< Shadow transf
+ 225:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                       only for slic
+ 226:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_SW_MCSS_SLICE3  = (uint32_t)0x20002000  /**< Shadow transf
+ 227:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                       and hardware 
+ 228:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_MULTI_CHANNEL_SHADOW_TRANSFER_t;
+ 229:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 230:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 231:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Operational modes of CCU4 slice
+ 232:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 233:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_MODE
+ 234:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 235:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MODE_COMPARE  = 0U, /**< slice(CC4y) operates in Compare Mode */
+ 236:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MODE_CAPTURE        /**< slice(CC4y) operates in Capture Mode */
+ 237:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_MODE_t;
+ 238:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 239:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 240:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Timer counting modes for the slice
+ 241:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 242:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_TIMER_COUNT_MODE
+ 243:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 244:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_COUNT_MODE_EA  = 0U, /**< Edge Aligned Mode */
+ 245:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_COUNT_MODE_CA        /**< Center Aligned Mode */
+ 246:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_TIMER_COUNT_MODE_t;
+ 247:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 248:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 249:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Timer repetition mode for the slice
+ 250:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 251:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_TIMER_REPEAT_MODE
+ 252:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 253:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_REPEAT_MODE_REPEAT = 0U,  /**< Repetitive mode: continuous mode of operation
+ 254:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_REPEAT_MODE_SINGLE        /**< Single shot mode: Once a Period match/One mat
+ 255:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                       occurs timer goes to idle state */
+ 256:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_TIMER_REPEAT_MODE_t;
+ 257:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 258:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 259:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Timer counting direction for the CCU4 slice
+ 260:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 261:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_TIMER_COUNT_DIR
+ 262:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 263:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_COUNT_DIR_UP   = 0U, /**< Counting up */
+ 264:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_COUNT_DIR_DOWN       /**< Counting down */
+ 265:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_TIMER_COUNT_DIR_t;
+ 266:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 267:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 268:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Capture mode register sets
+ 269:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 270:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_CAP_REG_SET
+ 271:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 272:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_CAP_REG_SET_LOW  = 0U, /**< Capture register-0, Capture register-1 used */
+ 273:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_CAP_REG_SET_HIGH       /**< Capture register-2, Capture register-3 used */
+ 274:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_CAP_REG_SET_t;
+ 275:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 276:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 277:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Prescaler mode
+ 278:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 279:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_PRESCALER_MODE
+ 280:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 281:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_MODE_NORMAL = 0U, /**< Fixed division of module clock */
+ 282:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_MODE_FLOAT        /**< Floating divider. */
+ 283:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_PRESCALER_MODE_t;
+ 284:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 285:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 286:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Timer output passive level
+ 287:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 288:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_OUTPUT_PASSIVE_LEVEL
+ 289:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 290:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_OUTPUT_PASSIVE_LEVEL_LOW  = 0U, /**< Passive level = Low */
+ 291:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_OUTPUT_PASSIVE_LEVEL_HIGH       /**< Passive level = High */
+ 292:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_OUTPUT_PASSIVE_LEVEL_t;
+ 293:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 294:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 295:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Timer clock Divider
+ 296:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 297:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_PRESCALER
+ 298:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 299:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_1  = 0U, /**< Slice Clock = fccu4 */
+ 300:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_2      , /**< Slice Clock = fccu4/2 */
+ 301:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_4      , /**< Slice Clock = fccu4/4 */
+ 302:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_8      , /**< Slice Clock = fccu4/8 */
+ 303:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_16     , /**< Slice Clock = fccu4/16 */
+ 304:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_32     , /**< Slice Clock = fccu4/32 */
+ 305:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_64     , /**< Slice Clock = fccu4/64 */
+ 306:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_128    , /**< Slice Clock = fccu4/128 */
+ 307:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_256    , /**< Slice Clock = fccu4/256 */
+ 308:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_512    , /**< Slice Clock = fccu4/512 */
+ 309:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_1024   , /**< Slice Clock = fccu4/1024 */
+ 310:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_2048   , /**< Slice Clock = fccu4/2048 */
+ 311:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_4096   , /**< Slice Clock = fccu4/4096 */
+ 312:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_8192   , /**< Slice Clock = fccu4/8192 */
+ 313:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_16384  , /**< Slice Clock = fccu4/16384 */
+ 314:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_PRESCALER_32768    /**< Slice Clock = fccu4/32768 */
+ 315:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_PRESCALER_t;
+ 316:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 317:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 318:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  External Function list
+ 319:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 320:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_FUNCTION
+ 321:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 322:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_START           = 0U, /**< Start function */
+ 323:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_STOP                , /**< Stop function */
+ 324:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_CAPTURE_EVENT0      , /**< Capture Event-0 function, CCycapt0 signal is u
+ 325:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                      generation */
+ 326:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_CAPTURE_EVENT1      , /**< Capture Event-1 function, CCycapt1 signal is u
+ 327:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                      generation */
+ 328:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_GATING              , /**< Gating function */
+ 329:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_DIRECTION           , /**< Direction function */
+ 330:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_LOAD                , /**< Load function */
+ 331:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_COUNT               , /**< Counting function */
+ 332:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_OVERRIDE            , /**< Override function */
+ 333:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_MODULATION          , /**< Modulation function */
+ 334:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_FUNCTION_TRAP                  /**< Trap function */
+ 335:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_FUNCTION_t;
+ 336:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 337:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 338:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  External Event list
+ 339:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 340:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_EVENT
+ 341:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 342:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_NONE  = 0U, /**< None */
+ 343:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_0         , /**< Event-0 */
+ 344:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_1         , /**< Event-1 */
+ 345:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_2           /**< Event-2 */
+ 346:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_EVENT_t;
+ 347:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 348:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 349:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  External Event trigger criteria  - Edge sensitivity
+ 350:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 351:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_EVENT_EDGE_SENSITIVITY
+ 352:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 353:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_EDGE_SENSITIVITY_NONE         = 0U, /**< None */
+ 354:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_EDGE_SENSITIVITY_RISING_EDGE      , /**< Rising Edge of the input signal gen
+ 355:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_EDGE_SENSITIVITY_FALLING_EDGE     , /**< Falling Edge of the input signal ge
+ 356:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                 trigger */
+ 357:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_EDGE_SENSITIVITY_DUAL_EDGE          /**< Both Rising and Falling edges cause
+ 358:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_EVENT_EDGE_SENSITIVITY_t;
+ 359:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 360:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 361:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  External Event trigger criteria  - Level sensitivity
+ 362:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 363:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY
+ 364:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 365:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY_ACTIVE_HIGH = 0U, /**< Level sensitive functions react to 
+ 366:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY_ACTIVE_LOW  = 1U, /**< Level sensitive functions react to 
+ 367:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   /* Below enum items can be utilised specific to the functionality */
+ 368:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY_COUNT_UP_ON_LOW = 0U, /**< Timer counts up, during Low sta
+ 369:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY_COUNT_UP_ON_HIGH = 1U /**< Timer counts up, during High st
+ 370:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY_t;
+ 371:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 372:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 373:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Low pass filter Configuration. The External Event input should be stable for a selected number 
+ 374:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 375:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_EVENT_FILTER
+ 376:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 377:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_FILTER_DISABLED  = 0U, /**< No Low Pass Filter */
+ 378:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_FILTER_3_CYCLES      , /**< 3 clock cycles */
+ 379:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_FILTER_5_CYCLES      , /**< 5 clock cycles */
+ 380:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_FILTER_7_CYCLES        /**< 7 clock cycles */
+ 381:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_EVENT_FILTER_t;
+ 382:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 383:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 384:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  External Event Input list. This list depicts the possible input connections to the CCU4 slice.
+ 385:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Interconnects are specific to each device.
+ 386:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 387:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef uint8_t XMC_CCU4_SLICE_INPUT_t;
+ 388:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 389:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 390:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Actions that can be performed upon detection of an external Timer STOP event
+ 391:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 392:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_END_MODE
+ 393:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 394:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_END_MODE_TIMER_STOP       = 0U, /**< Stops the timer, without clearing TIMER regis
+ 395:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_END_MODE_TIMER_CLEAR          , /**< Without stopping timer, clears the TIMER regi
+ 396:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_END_MODE_TIMER_STOP_CLEAR       /**< Stops the timer and clears the TIMER register
+ 397:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_END_MODE_t;
+ 398:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 399:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 400:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Actions that can be performed upon detection of an external Timer START event
+ 401:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 402:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_START_MODE
+ 403:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 404:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_START_MODE_TIMER_START       = 0U, /**< Start the timer from the current count of 
+ 405:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_START_MODE_TIMER_START_CLEAR       /**< Clears the TIMER register and start the ti
+ 406:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_START_MODE_t;
+ 407:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 408:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 409:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Modulation of timer output signals
+ 410:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 411:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_MODULATION_MODE
+ 412:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 413:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MODULATION_MODE_CLEAR_ST_OUT  = 0U, /**< Clear ST and OUT signals */
+ 414:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MODULATION_MODE_CLEAR_OUT           /**< Clear only the OUT signal */
+ 415:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_MODULATION_MODE_t;
+ 416:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 417:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 418:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Trap exit mode
+ 419:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 420:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_TRAP_EXIT_MODE
+ 421:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 422:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TRAP_EXIT_MODE_AUTOMATIC = 0U, /**< Clear trap state as soon as the trap signal is
+ 423:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TRAP_EXIT_MODE_SW              /**< Clear only when acknowledged by software */
+ 424:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_TRAP_EXIT_MODE_t;
+ 425:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 426:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 427:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Timer clear on capture
+ 428:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 429:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_TIMER_CLEAR_MODE
+ 430:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 431:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_CLEAR_MODE_NEVER    = 0U, /**< Never clear the timer on any capture event */
+ 432:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_CLEAR_MODE_CAP_HIGH     , /**< Clear only when timer value has been captured
+ 433:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_CLEAR_MODE_CAP_LOW      , /**< Clear only when timer value has been captured
+ 434:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_TIMER_CLEAR_MODE_ALWAYS         /**< Always clear the timer upon detection of any 
+ 435:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_TIMER_CLEAR_MODE_t;
+ 436:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 437:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 438:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Multi Channel Shadow transfer request configuration options
+ 439:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 440:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_MCMS_ACTION
+ 441:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 442:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MCMS_ACTION_TRANSFER_PR_CR          = 0U, /**< Transfer Compare and Period Shadow 
+ 443:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                 the actual registers upon MCS xfer 
+ 444:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MCMS_ACTION_TRANSFER_PR_CR_PCMP     = 1U, /**< Transfer Compare, Period and Presca
+ 445:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                 register values to the actual regis
+ 446:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                 request */
+ 447:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MCMS_ACTION_TRANSFER_PR_CR_PCMP_DIT = 3U  /**< Transfer Compare, Period ,Prescaler
+ 448:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                 Compare register values to the actu
+ 449:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                 MCS xfer request */
+ 450:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_MCMS_ACTION_t;
+ 451:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 452:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 453:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Available Interrupt Event Ids
+ 454:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 455:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_IRQ_ID
+ 456:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 457:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_PERIOD_MATCH       = 0U , /**< Period match counting up */
+ 458:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_ONE_MATCH          = 1U , /**< Period match -> One match counting down */
+ 459:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_COMPARE_MATCH_UP   = 2U , /**< Compare match counting up */
+ 460:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_COMPARE_MATCH_DOWN = 3U , /**< Compare match counting down */
+ 461:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_EVENT0             = 8U , /**< Event-0 occurrence */
+ 462:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_EVENT1             = 9U , /**< Event-1 occurrence */
+ 463:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_EVENT2             = 10U, /**< Event-2 occurrence */
+ 464:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_IRQ_ID_TRAP               = 11U  /**< Trap occurrence */
+ 465:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_IRQ_ID_t;
+ 466:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 467:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 468:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Available Interrupt Event Ids, which is added to support multi event APIs
+ 469:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 470:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_MULTI_IRQ_ID
+ 471:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 472:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MULTI_IRQ_ID_PERIOD_MATCH       = 0x1U,   /**< Period match counting up */
+ 473:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MULTI_IRQ_ID_ONE_MATCH          = 0x2U,   /**< Period match -> One match counting 
+ 474:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MULTI_IRQ_ID_COMPARE_MATCH_UP   = 0x4U,   /**< Compare match counting up */
+ 475:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MULTI_IRQ_ID_COMPARE_MATCH_DOWN = 0x8U,   /**< Compare match counting down */
+ 476:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MULTI_IRQ_ID_EVENT0             = 0x100U, /**< Event-0 occurrence */
+ 477:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MULTI_IRQ_ID_EVENT1             = 0x200U, /**< Event-1 occurrence */
+ 478:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MULTI_IRQ_ID_EVENT2             = 0x400U, /**< Event-2 occurrence */
+ 479:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_MULTI_IRQ_ID_t;
+ 480:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 481:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 482:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Service Request Lines for CCU4. Event are mapped to these SR lines and these are used to generat
+ 483:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 484:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_SR_ID
+ 485:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 486:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_SR_ID_0    = 0U, /**< Service Request Line-0 selected  */
+ 487:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_SR_ID_1        , /**< Service Request Line-1 selected  */
+ 488:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_SR_ID_2        , /**< Service Request Line-2 selected  */
+ 489:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_SR_ID_3          /**< Service Request Line-3 selected  */
+ 490:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_SR_ID_t;
+ 491:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 492:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 493:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Slice shadow transfer options.
+ 494:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 495:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SHADOW_TRANSFER
+ 496:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 497:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_SLICE_0            = CCU4_GCSS_S0SE_Msk, /**< Transfer Period, Compare a
+ 498:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           shadow register values to
+ 499:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           SLICE-0 */
+ 500:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_DITHER_SLICE_0     = CCU4_GCSS_S0DSE_Msk, /**< Transfer Dither compare s
+ 501:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           to actual register for SL
+ 502:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_PRESCALER_SLICE_0  = CCU4_GCSS_S0PSE_Msk, /**< Transfer Prescaler shadow
+ 503:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           actual register for SLICE
+ 504:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_SLICE_1            = CCU4_GCSS_S1SE_Msk, /**< Transfer Period, Compare a
+ 505:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           shadow register values to
+ 506:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           SLICE-1 */
+ 507:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_DITHER_SLICE_1     = CCU4_GCSS_S1DSE_Msk, /**< Transfer Dither compare s
+ 508:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           to actual registers for S
+ 509:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_PRESCALER_SLICE_1  = CCU4_GCSS_S1PSE_Msk, /**< Transfer Prescaler shadow
+ 510:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           actual register for SLICE
+ 511:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_SLICE_2            = CCU4_GCSS_S2SE_Msk, /**< Transfer Period, Compare a
+ 512:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           shadow register values to
+ 513:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           SLICE-2 */
+ 514:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_DITHER_SLICE_2     = CCU4_GCSS_S2DSE_Msk, /**< Transfer Dither compare s
+ 515:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           to actual register for SL
+ 516:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_PRESCALER_SLICE_2  = CCU4_GCSS_S2PSE_Msk, /**< Transfer Prescaler shadow
+ 517:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           actual register for SLICE
+ 518:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_SLICE_3            = CCU4_GCSS_S3SE_Msk, /**< Transfer Period, Compare a
+ 519:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           shadow register values to
+ 520:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           SLICE-3 */
+ 521:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_DITHER_SLICE_3     = CCU4_GCSS_S3DSE_Msk, /**< Transfer Dither compare s
+ 522:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           to actual register for SL
+ 523:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SHADOW_TRANSFER_PRESCALER_SLICE_3  = CCU4_GCSS_S3PSE_Msk  /**< Transfer Prescaler shadow
+ 524:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                           actual register for SLICE
+ 525:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SHADOW_TRANSFER_t;
+ 526:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 527:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU4V3) || defined(DOXYGEN)/* Defined for XMC1400 devices only */
+ 528:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 529:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Slice shadow transfer mode options.
+ 530:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @note Only available for XMC1400 series
+ 531:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 532:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_SHADOW_TRANSFER_MODE
+ 533:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 534:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_SHADOW_TRANSFER_MODE_IN_PERIOD_MATCH_AND_ONE_MATCH = 0U,  /**< Shadow transfer is 
+ 535:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                 One match. */
+ 536:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_SHADOW_TRANSFER_MODE_ONLY_IN_PERIOD_MATCH = 1U,  /**< Shadow transfer is done only
+ 537:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_SHADOW_TRANSFER_MODE_ONLY_IN_ONE_MATCH = 2U  /**< Shadow transfer is done only in 
+ 538:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_SHADOW_TRANSFER_MODE_t; 
+ 539:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   
+ 540:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   
+ 541:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 542:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Immediate write into configuration register
+ 543:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  @note Only available for XMC1400 series
+ 544:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 545:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_WRITE_INTO
+ 546:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 547:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_WRITE_INTO_PERIOD_CONFIGURATION = CCU4_CC4_STC_IRPC_Msk,                  /**< Imm
+ 548:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Wri
+ 549:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Con
+ 550:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_WRITE_INTO_COMPARE_CONFIGURATION = CCU4_CC4_STC_IRCC_Msk,                 /**< Imm
+ 551:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Wri
+ 552:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Con
+ 553:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_WRITE_INTO_PASSIVE_LEVEL_CONFIGURATION = CCU4_CC4_STC_IRLC_Msk,           /**< Imm
+ 554:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Wri
+ 555:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                            Config
+ 556:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_WRITE_INTO_DITHER_VALUE_CONFIGURATION = CCU4_CC4_STC_IRDC_Msk,            /**< Imm
+ 557:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Wri
+ 558:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                            Config
+ 559:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_WRITE_INTO_FLOATING_PRESCALER_VALUE_CONFIGURATION = CCU4_CC4_STC_IRFC_Msk /**< Imm
+ 560:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Wri
+ 561:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                 Val
+ 562:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_WRITE_INTO_t;
+ 563:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 564:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 565:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 566:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Automatic Shadow Transfer request when writing into shadow register
+ 567:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  @note Only available for XMC1400 series
+ 568:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 569:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_AUTOMAIC_SHADOW_TRANSFER_WRITE_INTO
+ 570:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 571:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_AUTOMAIC_SHADOW_TRANSFER_WRITE_INTO_PERIOD_SHADOW = CCU4_CC4_STC_ASPC_Msk,        
+ 572:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                                  
+ 573:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                    
+ 574:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                    
+ 575:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_AUTOMAIC_SHADOW_TRANSFER_WRITE_INTO_COMPARE_SHADOW = CCU4_CC4_STC_ASCC_Msk,       
+ 576:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                                  
+ 577:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                                  
+ 578:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                                  
+ 579:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_AUTOMAIC_SHADOW_TRANSFER_WRITE_INTO_PASSIVE_LEVEL = CCU4_CC4_STC_ASLC_Msk,        
+ 580:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                                  
+ 581:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                    
+ 582:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_AUTOMAIC_SHADOW_TRANSFER_WRITE_INTO_DITHER_SHADOW = CCU4_CC4_STC_ASDC_Msk,        
+ 583:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                    
+ 584:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                    
+ 585:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_AUTOMAIC_SHADOW_TRANSFER_WRITE_INTO_FLOATING_PRESCALER_SHADOW = CCU4_CC4_STC_ASFC_
+ 586:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 	                                                                                                  
+ 587:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                    
+ 588:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                                                                    
+ 589:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 590:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_AUTOMAIC_SHADOW_TRANSFER_WRITE_INTO_t;
+ 591:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 592:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 593:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Used to create Mask needed for Multi-channel Shadow transfer enable/disable
+ 594:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 595:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef enum XMC_CCU4_SLICE_MASK
+ 596:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 597:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MASK_SLICE_0  = 1U , /**< SLICE-0 */
+ 598:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MASK_SLICE_1  = 2U , /**< SLICE-1 */
+ 599:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MASK_SLICE_2  = 4U , /**< SLICE-2 */
+ 600:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_MASK_SLICE_3  = 8U   /**< SLICE-3 */
+ 601:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_MASK_t;
+ 602:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 603:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 604:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**************************************************************************************************
+ 605:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * DATA STRUCTURES
+ 606:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  **************************************************************************************************
+ 607:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 608:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 609:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Configuration data structure of an External Event(Event-0/1/2).
+ 610:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Needed to configure the various aspects of an External Event.
+ 611:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  This structure will not connect the external event with an external function.
+ 612:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 613:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef struct XMC_CCU4_SLICE_EVENT_CONFIG
+ 614:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 615:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_INPUT_t                   mapped_input; /**< Required input signal for the Event *
+ 616:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_EDGE_SENSITIVITY_t  edge;         /**< Select the event edge of the input si
+ 617:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                               This is needed for an edge sensitive 
+ 618:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_LEVEL_SENSITIVITY_t level;        /**< Select the event level of the input s
+ 619:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                                               This is needed for an level sensitive
+ 620:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_CCU4_SLICE_EVENT_FILTER_t            duration;     /**< Low Pass filter duration in terms of 
+ 621:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_EVENT_CONFIG_t;
+ 622:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 623:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /*Anonymous structure/union guard start*/
+ 624:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(__CC_ARM)
+ 625:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   #pragma push
+ 626:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   #pragma anon_unions
+ 627:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #elif defined(__TASKING__)
+ 628:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   #pragma warning 586
+ 629:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 630:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 631:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 632:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Configuration data structure for CCU4 slice. Specifically configures the CCU4 slice to compare 
+ 633:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  This excludes event and function configuration.
+ 634:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 635:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef struct XMC_CCU4_SLICE_COMPARE_CONFIG
+ 636:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 637:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   union
+ 638:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   {
+ 639:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     struct
+ 640:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     {
+ 641:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t timer_mode : 1;         /**< Edge aligned or Centre Aligned.
+ 642:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                              Accepts enum ::XMC_CCU4_SLICE_TIMER_COUNT_MODE_t */
+ 643:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t monoshot : 1;           /**< Single shot or Continuous mode .
+ 644:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                              Accepts enum :: XMC_CCU4_SLICE_TIMER_REPEAT_MODE_t*/
+ 645:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t shadow_xfer_clear : 1;  /**< Should PR and CR shadow xfer happen when timer is clear
+ 646:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 10;
+ 647:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t dither_timer_period: 1; /**< Can the period of the timer dither? */
+ 648:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t dither_duty_cycle : 1;  /**< Can the compare match of the timer dither? */
+ 649:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 1;
+ 650:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t prescaler_mode: 1;      /**< Normal or floating prescaler mode.
+ 651:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                              Accepts enum :: XMC_CCU4_SLICE_PRESCALER_MODE_t*/
+ 652:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 8;
+ 653:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t mcm_enable : 1;         /**< Multi-Channel mode enable? */
+ 654:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 6;
+ 655:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     };
+ 656:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     uint32_t tc;
+ 657:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   };
+ 658:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t prescaler_initval : 4;      /**< Initial prescaler divider value 
+ 659:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                             Accepts enum :: XMC_CCU4_SLICE_PRESCALER_t */
+ 660:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t float_limit : 4;            /**< The max value which the prescaler divider can increment
+ 661:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t dither_limit : 4;           /**< The value that determines the spreading of dithering */
+ 662:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t passive_level : 1;          /**< Configuration of ST and OUT passive levels.
+ 663:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                              Accepts enum :: XMC_CCU4_SLICE_OUTPUT_PASSIVE_LEVEL_t*
+ 664:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t timer_concatenation : 1;    /**< Enables the concatenation of the timer if true.*/
+ 665:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_COMPARE_CONFIG_t;
+ 666:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 667:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 668:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Configuration data structure for CCU4 slice. Specifically configures the CCU4 slice to capture 
+ 669:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  This excludes event and function configuration.
+ 670:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */ 
+ 671:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** typedef struct XMC_CCU4_SLICE_CAPTURE_CONFIG
+ 672:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 673:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   union
+ 674:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   {
+ 675:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     struct
+ 676:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     {
+ 677:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 4;
+ 678:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t fifo_enable : 1;      /**< Should the capture registers be setup as a FIFO?(Extended
+ 679:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t timer_clear_mode : 2; /**< How should the timer register be cleared upon detection o
+ 680:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****                                           Accepts enum ::XMC_CCU4_SLICE_TIMER_CLEAR_MODE_t*/
+ 681:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 4;
+ 682:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t same_event : 1;       /**< Should the capture event for C1V/C0V and C3V/C2V be same 
+ 683:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t ignore_full_flag : 1; /**< Should updates to capture registers follow full flag rule
+ 684:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 3;
+ 685:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t prescaler_mode: 1;    /**< Normal or floating prescaler Accepts enum :: XMC_CCU4_SLI
+ 686:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****       uint32_t : 15;
+ 687:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     };
+ 688:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****     uint32_t tc;
+ 689:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   };
+ 690:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t prescaler_initval : 4;    /**< Prescaler divider value */
+ 691:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t float_limit : 4;          /**< The max value which the prescaler divider can increment t
+ 692:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   uint32_t timer_concatenation : 1;  /**< Enables the concatenation of the timer */
+ 693:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } XMC_CCU4_SLICE_CAPTURE_CONFIG_t;
+ 694:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /*Anonymous structure/union guard end*/
+ 695:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(__CC_ARM)
+ 696:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   #pragma pop
+ 697:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #elif defined(__TASKING__)
+ 698:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   #pragma warning restore
+ 699:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 700:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**************************************************************************************************
+ 701:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * API Prototypes
+ 702:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  **************************************************************************************************
+ 703:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 704:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #ifdef __cplusplus
+ 705:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** extern "C" {
+ 706:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 707:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 708:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** __STATIC_INLINE bool XMC_CCU4_IsValidModule(const XMC_CCU4_MODULE_t *const module)
+ 709:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 710:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   bool tmp = false;
+ 711:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   
+ 712:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = (module == CCU40);
+ 713:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   
+ 714:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU41) 
+ 715:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (module == CCU41);
+ 716:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 717:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 718:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU42)
+ 719:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (module == CCU42);
+ 720:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 721:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 722:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU43)
+ 723:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (module == CCU43);
+ 724:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 725:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   
+ 726:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   return tmp;  
+ 727:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } 
+ 728:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 729:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** __STATIC_INLINE bool XMC_CCU4_IsValidSlice(const XMC_CCU4_SLICE_t *const slice)
+ 730:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+ 731:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   bool tmp = false;
+ 732:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   
+ 733:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = (slice == CCU40_CC40);
+ 734:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU40_CC41)  
+ 735:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU40_CC41);
+ 736:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 737:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU40_CC42)  
+ 738:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU40_CC42);
+ 739:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 740:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU40_CC43)  
+ 741:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU40_CC43);
+ 742:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 743:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU41)  
+ 744:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU41_CC40);
+ 745:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU41_CC41)  
+ 746:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU41_CC41);
+ 747:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 748:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU41_CC42)  
+ 749:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU41_CC42);
+ 750:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 751:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU41_CC43)  
+ 752:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU41_CC43);
+ 753:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 754:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif 
+ 755:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU42)  
+ 756:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU42_CC40);
+ 757:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU42_CC41)  
+ 758:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU42_CC41);
+ 759:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 760:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU42_CC42)  
+ 761:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU42_CC42);
+ 762:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 763:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU42_CC43)  
+ 764:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU42_CC43);
+ 765:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 766:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 767:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU43)  
+ 768:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU43_CC40);
+ 769:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU43_CC41)  
+ 770:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU43_CC41);
+ 771:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 772:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU43_CC42)  
+ 773:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU43_CC42);
+ 774:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 775:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #if defined(CCU43_CC43)  
+ 776:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   tmp = tmp || (slice == CCU43_CC43);
+ 777:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif
+ 778:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** #endif 
+ 779:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   
+ 780:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   return tmp;  
+ 781:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** } 
+ 782:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 783:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 784:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @param module Constant pointer to CCU4 module
+ 785:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @param mcs_action multi-channel shadow transfer request configuration
+ 786:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @return <BR>
+ 787:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    None<BR>
+ 788:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 789:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Description:</b><br>
+ 790:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Initialization of global register GCTRL.<br>\n
+ 791:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  As part of module initialization, behaviour of the module upon detection
+ 792:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Multi-Channel Mode trigger is configured. Will also invoke the XMC_CCU4_EnableModule().
+ 793:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  The API call would bring up the required CCU4 module and also initialize the module for
+ 794:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  the required multi-channel shadow transfer.
+ 795:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 796:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Related APIs:</b><br>
+ 797:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * XMC_CCU4_SLICE_CompareInit()<BR> XMC_CCU4_SLICE_CaptureInit().
+ 798:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 799:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** void XMC_CCU4_Init(XMC_CCU4_MODULE_t *const module, const XMC_CCU4_SLICE_MCMS_ACTION_t mcs_action);
+ 800:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 801:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 802:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @param module Constant pointer to CCU4 module
+ 803:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @param clock Choice of input clock to the module
+ 804:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @return <BR>
+ 805:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    None<BR>
+ 806:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 807:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Description:</b><br>
+ 808:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Selects the Module Clock by configuring GCTRL.PCIS bits.<BR>\n
+ 809:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  There are 3 potential clock sources. This API helps to select the required clock source.
+ 810:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Call to this API is valid after the XMC_CCU4_Init().
+ 811:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 812:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Related APIs:</b><br>
+ 813:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * None.<BR>
+ 814:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 815:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** void XMC_CCU4_SetModuleClock(XMC_CCU4_MODULE_t *const module, const XMC_CCU4_CLOCK_t clock);
+ 816:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 817:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 818:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @param module Constant pointer to CCU4 module
+ 819:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @return <BR>
+ 820:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    None<BR>
+ 821:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 822:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Description:</b><br>
+ 823:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Enables the CCU4 module and brings it to active state.<BR>\n
+ 824:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Also disables the gating of the clock signal (if applicable depending on the device being select
+ 825:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Invoke this API before any operations are done on the CCU4 module. Invoked from  XMC_CCU4_Init()
+ 826:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 827:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Related APIs:</b><br>
+ 828:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * XMC_CCU4_SetModuleClock()<BR> XMC_CCU4_DisableModule()<BR> XMC_CCU4_StartPrescaler().
+ 829:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 830:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** void XMC_CCU4_EnableModule(XMC_CCU4_MODULE_t *const module);
+ 831:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 832:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 833:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @param module Constant pointer to CCU4 module
+ 834:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @return <BR>
+ 835:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    None<BR>
+ 836:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 837:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Description:</b><br>
+ 838:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Brings the CCU4 module to reset state and enables gating of the clock signal(if applicable depen
+ 839:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * on the device being selected).<BR>\n
+ 840:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Invoke this API when a CCU4 module needs to be disabled completely.
+ 841:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * Any operation on the CCU4 module will have no effect after this API is called.
+ 842:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 843:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Related APIs:</b><br>
+ 844:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * XMC_CCU4_EnableModule()<BR> XMC_CCU4_DisableModule().
+ 845:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 846:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** void XMC_CCU4_DisableModule(XMC_CCU4_MODULE_t *const module);
+ 847:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** 
+ 848:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** /**
+ 849:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @param module Constant pointer to CCU4 module
+ 850:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * @return <BR>
+ 851:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *    None<BR>
+ 852:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 853:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Description:</b><br>
+ 854:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Starts the prescaler and restores clocks to the timer slices, by setting GIDLC.SPRB bit.<BR>\n
+ 855:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  Once the input to the prescaler has been chosen and the prescaler divider of all slices program
+ 856:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  the prescaler itself may be started. Invoke this  API after XMC_CCU4_Init()
+ 857:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *  (Mandatory to fully initialize the module).Directly accessed register is GIDLC.
+ 858:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  *
+ 859:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * \par<b>Related APIs:</b><br>
+ 860:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * XMC_CCU4_Init()<BR> XMC_CCU4_EnableClock()<BR> XMC_CCU4_DisableClock()<BR> XMC_CCU4_StartPrescal
+ 861:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  * XMC_CCU4_StopPrescaler().
+ 862:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****  */
+ 863:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** __STATIC_INLINE void XMC_CCU4_StartPrescaler(XMC_CCU4_MODULE_t *const module)
+ 864:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** {
+  27              	 .loc 1 864 0
+  28              	 .cfi_startproc
+  29              	 
+  30              	 
+  31              	 
+  32 0000 80B4     	 push {r7}
+  33              	.LCFI0:
+  34              	 .cfi_def_cfa_offset 4
+  35              	 .cfi_offset 7,-4
+  36 0002 83B0     	 sub sp,sp,#12
+  37              	.LCFI1:
+  38              	 .cfi_def_cfa_offset 16
+  39 0004 00AF     	 add r7,sp,#0
+  40              	.LCFI2:
+  41              	 .cfi_def_cfa_register 7
+  42 0006 7860     	 str r0,[r7,#4]
+ 865:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   XMC_ASSERT("XMC_CCU4_StartPrescaler:Invalid Module Pointer", XMC_CCU4_IsValidModule(module));
+ 866:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h ****   module->GIDLC |= (uint32_t) CCU4_GIDLC_SPRB_Msk;
+  43              	 .loc 1 866 0
+  44 0008 7B68     	 ldr r3,[r7,#4]
+  45 000a DB68     	 ldr r3,[r3,#12]
+  46 000c 43F48072 	 orr r2,r3,#256
+  47 0010 7B68     	 ldr r3,[r7,#4]
+  48 0012 DA60     	 str r2,[r3,#12]
+ 867:F:/Fuckultate/ProectSI/Libraries/XMCLib/inc\xmc_ccu4.h **** }
+  49              	 .loc 1 867 0
+  50 0014 0C37     	 adds r7,r7,#12
+  51              	.LCFI3:
+  52              	 .cfi_def_cfa_offset 4
+  53 0016 BD46     	 mov sp,r7
+  54              	.LCFI4:
+  55              	 .cfi_def_cfa_register 13
+  56              	 
+  57 0018 5DF8047B 	 ldr r7,[sp],#4
+  58              	.LCFI5:
+  59              	 .cfi_restore 7
+  60              	 .cfi_def_cfa_offset 0
+  61 001c 7047     	 bx lr
+  62              	 .cfi_endproc
+  63              	.LFE137:
+  65 001e 00BF     	 .section .text.GLOBAL_CCU4_GetAppVersion,"ax",%progbits
+  66              	 .align 2
+  67              	 .global GLOBAL_CCU4_GetAppVersion
+  68              	 .thumb
+  69              	 .thumb_func
+  71              	GLOBAL_CCU4_GetAppVersion:
+  72              	.LFB212:
+  73              	 .file 2 "../Dave/Generated/GLOBAL_CCU4/global_ccu4.c"
+   1:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /**
+   2:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * @file global_ccu4.c
+   3:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * @date 2016-02-10
+   4:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+   5:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * NOTE:
+   6:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * This file is generated by DAVE. Any manual modification done to this file will be lost when the 
+   7:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+   8:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * @cond
+   9:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  **************************************************************************************************
+  10:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * GLOBAL_CCU4 v4.1.12 - Configures the global properties of CCU4x peripheral instance.
+  11:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  12:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * Copyright (c) 2016, Infineon Technologies AG
+  13:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * All rights reserved.
+  14:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  15:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  16:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * following conditions are met:
+  17:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  18:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *   Redistributions of source code must retain the above copyright notice, this list of conditions
+  19:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *   disclaimer.
+  20:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  21:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *   Redistributions in binary form must reproduce the above copyright notice, this list of conditi
+  22:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *   following disclaimer in the documentation and/or other materials provided with the distributio
+  23:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  24:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *   Neither the name of the copyright holders nor the names of its contributors may be used to end
+  25:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *   products derived from this software without specific prior written permission.
+  26:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  27:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  28:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  29:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  30:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  31:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  32:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  33:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  34:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  35:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  36:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * with Infineon Technologies AG (dave@infineon.com).
+  37:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  **************************************************************************************************
+  38:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  39:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * Change History
+  40:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * --------------
+  41:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  42:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * 2015-02-16:
+  43:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *     - Initial version<br>
+  44:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  45:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * @endcond
+  46:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  *
+  47:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  */
+  48:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /**************************************************************************************************
+  49:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * HEADER FILES
+  50:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  **************************************************************************************************
+  51:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  52:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** #include "global_ccu4.h"
+  53:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  54:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /**************************************************************************************************
+  55:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * MACROS
+  56:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  **************************************************************************************************
+  57:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  58:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /**************************************************************************************************
+  59:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * LOCAL DATA
+  60:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  **************************************************************************************************
+  61:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  
+  62:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /**************************************************************************************************
+  63:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * LOCAL ROUTINES
+  64:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  **************************************************************************************************
+  65:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  66:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /**************************************************************************************************
+  67:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  * API IMPLEMENTATION
+  68:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****  **************************************************************************************************
+  69:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /* Returns the version of the GLOBAL_CCU4 APP. */
+  70:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** DAVE_APP_VERSION_t GLOBAL_CCU4_GetAppVersion(void)
+  71:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** {
+  74              	 .loc 2 71 0
+  75              	 .cfi_startproc
+  76              	 
+  77              	 
+  78              	 
+  79 0000 80B4     	 push {r7}
+  80              	.LCFI6:
+  81              	 .cfi_def_cfa_offset 4
+  82              	 .cfi_offset 7,-4
+  83 0002 83B0     	 sub sp,sp,#12
+  84              	.LCFI7:
+  85              	 .cfi_def_cfa_offset 16
+  86 0004 00AF     	 add r7,sp,#0
+  87              	.LCFI8:
+  88              	 .cfi_def_cfa_register 7
+  72:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   DAVE_APP_VERSION_t version;
+  73:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  74:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   version.major = GLOBAL_CCU4_MAJOR_VERSION;
+  89              	 .loc 2 74 0
+  90 0006 0423     	 movs r3,#4
+  91 0008 3B70     	 strb r3,[r7]
+  75:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   version.minor = GLOBAL_CCU4_MINOR_VERSION;
+  92              	 .loc 2 75 0
+  93 000a 0123     	 movs r3,#1
+  94 000c 7B70     	 strb r3,[r7,#1]
+  76:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   version.patch = GLOBAL_CCU4_PATCH_VERSION;
+  95              	 .loc 2 76 0
+  96 000e 0C23     	 movs r3,#12
+  97 0010 BB70     	 strb r3,[r7,#2]
+  77:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  78:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   return version;
+  98              	 .loc 2 78 0
+  99 0012 3B1D     	 adds r3,r7,#4
+ 100 0014 3A46     	 mov r2,r7
+ 101 0016 1268     	 ldr r2,[r2]
+ 102 0018 1146     	 mov r1,r2
+ 103 001a 1980     	 strh r1,[r3]
+ 104 001c 0233     	 adds r3,r3,#2
+ 105 001e 120C     	 lsrs r2,r2,#16
+ 106 0020 1A70     	 strb r2,[r3]
+ 107 0022 0023     	 movs r3,#0
+ 108 0024 3A79     	 ldrb r2,[r7,#4]
+ 109 0026 62F30703 	 bfi r3,r2,#0,#8
+ 110 002a 7A79     	 ldrb r2,[r7,#5]
+ 111 002c 62F30F23 	 bfi r3,r2,#8,#8
+ 112 0030 BA79     	 ldrb r2,[r7,#6]
+ 113 0032 62F31743 	 bfi r3,r2,#16,#8
+  79:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** }
+ 114              	 .loc 2 79 0
+ 115 0036 1846     	 mov r0,r3
+ 116 0038 0C37     	 adds r7,r7,#12
+ 117              	.LCFI9:
+ 118              	 .cfi_def_cfa_offset 4
+ 119 003a BD46     	 mov sp,r7
+ 120              	.LCFI10:
+ 121              	 .cfi_def_cfa_register 13
+ 122              	 
+ 123 003c 5DF8047B 	 ldr r7,[sp],#4
+ 124              	.LCFI11:
+ 125              	 .cfi_restore 7
+ 126              	 .cfi_def_cfa_offset 0
+ 127 0040 7047     	 bx lr
+ 128              	 .cfi_endproc
+ 129              	.LFE212:
+ 131 0042 00BF     	 .section .text.GLOBAL_CCU4_Init,"ax",%progbits
+ 132              	 .align 2
+ 133              	 .global GLOBAL_CCU4_Init
+ 134              	 .thumb
+ 135              	 .thumb_func
+ 137              	GLOBAL_CCU4_Init:
+ 138              	.LFB213:
+  80:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  81:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** /* Initializes the slice with the generated configuration */
+  82:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** GLOBAL_CCU4_STATUS_t GLOBAL_CCU4_Init(GLOBAL_CCU4_t* handle)
+  83:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** {
+ 139              	 .loc 2 83 0
+ 140              	 .cfi_startproc
+ 141              	 
+ 142              	 
+ 143 0000 80B5     	 push {r7,lr}
+ 144              	.LCFI12:
+ 145              	 .cfi_def_cfa_offset 8
+ 146              	 .cfi_offset 7,-8
+ 147              	 .cfi_offset 14,-4
+ 148 0002 82B0     	 sub sp,sp,#8
+ 149              	.LCFI13:
+ 150              	 .cfi_def_cfa_offset 16
+ 151 0004 00AF     	 add r7,sp,#0
+ 152              	.LCFI14:
+ 153              	 .cfi_def_cfa_register 7
+ 154 0006 7860     	 str r0,[r7,#4]
+  84:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   XMC_ASSERT("GLOBAL_CCU4_Init:NULL handler", (NULL != handle));
+  85:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  86:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   if (false == handle->is_initialized)
+ 155              	 .loc 2 86 0
+ 156 0008 7B68     	 ldr r3,[r7,#4]
+ 157 000a 5B7B     	 ldrb r3,[r3,#13]
+ 158 000c 83F00103 	 eor r3,r3,#1
+ 159 0010 DBB2     	 uxtb r3,r3
+ 160 0012 002B     	 cmp r3,#0
+ 161 0014 0FD0     	 beq .L5
+  87:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   {
+  88:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****     /* Enable CCU4 module */
+  89:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****     XMC_CCU4_Init(handle->module_ptr,handle->mcs_action);
+ 162              	 .loc 2 89 0
+ 163 0016 7B68     	 ldr r3,[r7,#4]
+ 164 0018 9A68     	 ldr r2,[r3,#8]
+ 165 001a 7B68     	 ldr r3,[r7,#4]
+ 166 001c 1B7B     	 ldrb r3,[r3,#12]
+ 167 001e 1046     	 mov r0,r2
+ 168 0020 1946     	 mov r1,r3
+ 169 0022 FFF7FEFF 	 bl XMC_CCU4_Init
+  90:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****     /* Start the prescaler */
+  91:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****     XMC_CCU4_StartPrescaler(handle->module_ptr);
+ 170              	 .loc 2 91 0
+ 171 0026 7B68     	 ldr r3,[r7,#4]
+ 172 0028 9B68     	 ldr r3,[r3,#8]
+ 173 002a 1846     	 mov r0,r3
+ 174 002c FFF7FEFF 	 bl XMC_CCU4_StartPrescaler
+  92:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****     /* Restricts multiple initializations */
+  93:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****     handle->is_initialized = true;
+ 175              	 .loc 2 93 0
+ 176 0030 7B68     	 ldr r3,[r7,#4]
+ 177 0032 0122     	 movs r2,#1
+ 178 0034 5A73     	 strb r2,[r3,#13]
+ 179              	.L5:
+  94:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   }
+  95:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** 
+  96:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c ****   return (GLOBAL_CCU4_STATUS_SUCCESS);
+ 180              	 .loc 2 96 0
+ 181 0036 0023     	 movs r3,#0
+  97:../Dave/Generated/GLOBAL_CCU4/global_ccu4.c **** }
+ 182              	 .loc 2 97 0
+ 183 0038 1846     	 mov r0,r3
+ 184 003a 0837     	 adds r7,r7,#8
+ 185              	.LCFI15:
+ 186              	 .cfi_def_cfa_offset 8
+ 187 003c BD46     	 mov sp,r7
+ 188              	.LCFI16:
+ 189              	 .cfi_def_cfa_register 13
+ 190              	 
+ 191 003e 80BD     	 pop {r7,pc}
+ 192              	 .cfi_endproc
+ 193              	.LFE213:
+ 195              	 .text
+ 196              	.Letext0:
+ 197              	 .file 3 "d:\\dave-ide-4.4.2-64bit\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 198              	 .file 4 "d:\\dave-ide-4.4.2-64bit\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 199              	 .file 5 "F:/Fuckultate/ProectSI/Libraries/CMSIS/Infineon/XMC4700_series/Include/XMC4700.h"
+ 200              	 .file 6 "F:/Fuckultate/ProectSI/Libraries/XMCLib/inc/xmc4_scu.h"
+ 201              	 .file 7 "F:/Fuckultate/ProectSI/Dave/Generated/DAVE_Common.h"
+ 202              	 .file 8 "../Dave/Generated/GLOBAL_CCU4/global_ccu4.h"
+ 203              	 .file 9 "F:/Fuckultate/ProectSI/Libraries/CMSIS/Include/core_cm4.h"
+ 204              	 .file 10 "F:/Fuckultate/ProectSI/Libraries/CMSIS/Infineon/XMC4700_series/Include/system_XMC4700.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 global_ccu4.c
+    {standard input}:20     .text.XMC_CCU4_StartPrescaler:00000000 $t
+    {standard input}:24     .text.XMC_CCU4_StartPrescaler:00000000 XMC_CCU4_StartPrescaler
+    {standard input}:66     .text.GLOBAL_CCU4_GetAppVersion:00000000 $t
+    {standard input}:71     .text.GLOBAL_CCU4_GetAppVersion:00000000 GLOBAL_CCU4_GetAppVersion
+    {standard input}:132    .text.GLOBAL_CCU4_Init:00000000 $t
+    {standard input}:137    .text.GLOBAL_CCU4_Init:00000000 GLOBAL_CCU4_Init
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+XMC_CCU4_Init
